@@ -1,0 +1,104 @@
+"use client";
+
+import { NAV_LINKS } from "@/constants/navigation";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Stack,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import Link from "next/link";
+import { useState } from "react";
+
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <AppBar
+      position="sticky"
+      color="transparent"
+      elevation={0}
+      sx={{
+        backdropFilter: "blur(18px)",
+        backgroundColor: "rgba(252, 248, 243, 0.78)",
+        borderBottom: "1px solid rgba(122, 62, 43, 0.08)",
+      }}
+    >
+      <Container>
+        <Toolbar disableGutters sx={{ minHeight: 80 }}>
+          <Typography
+            component={Link}
+            href="/"
+            variant="h5"
+            sx={{
+              textDecoration: "none",
+              color: "primary.dark",
+              fontFamily: '"Cormorant Garamond", serif',
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+            }}
+          >
+            Pushpasadan
+          </Typography>
+
+          <Box sx={{ flexGrow: 1 }} />
+
+          <Stack direction="row" spacing={1} sx={{ display: { xs: "none", md: "flex" } }}>
+            {NAV_LINKS.map((link) => (
+              <Button
+                key={link.name}
+                component={Link}
+                href={link.href}
+                color="inherit"
+                sx={{ color: "text.primary" }}
+              >
+                {link.name}
+              </Button>
+            ))}
+          </Stack>
+
+          <IconButton
+            aria-label="open navigation"
+            onClick={() => setOpen(true)}
+            sx={{ display: { xs: "inline-flex", md: "none" }, color: "primary.dark" }}
+          >
+            <MenuRoundedIcon />
+          </IconButton>
+        </Toolbar>
+      </Container>
+
+      {open ? (
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+            borderTop: "1px solid rgba(122, 62, 43, 0.08)",
+            bgcolor: "rgba(252, 248, 243, 0.96)",
+          }}
+        >
+          <Container sx={{ py: 2 }}>
+            <Stack spacing={1}>
+              {NAV_LINKS.map((link) => (
+                <Button
+                  key={link.name}
+                  component={Link}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  sx={{ justifyContent: "flex-start", color: "text.primary" }}
+                >
+                  {link.name}
+                </Button>
+              ))}
+            </Stack>
+          </Container>
+        </Box>
+      ) : null}
+    </AppBar>
+  );
+};
+
+export default Navbar;
