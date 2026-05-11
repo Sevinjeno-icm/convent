@@ -4,25 +4,25 @@ const theme = createTheme({
   cssVariables: true,
   palette: {
     primary: {
-      main: "#7A3E2B",
-      light: "#A75E43",
-      dark: "#542819",
+      main: "#2F6F73",
+      light: "#5D9698",
+      dark: "#17484C",
     },
     secondary: {
-      main: "#D7B98E",
-      light: "#E8D6B6",
-      dark: "#B18F62",
+      main: "#E6B17E",
+      light: "#F3D1AB",
+      dark: "#B88255",
     },
     background: {
-      default: "#FCF8F3",
+      default: "#F6FBF8",
       paper: "#FFFFFF",
     },
     text: {
-      primary: "#2B211A",
-      secondary: "#5F534A",
+      primary: "#233331",
+      secondary: "#5C6A66",
     },
     success: {
-      main: "#4F7B62",
+      main: "#6FA06B",
     },
   },
   shape: {
@@ -82,7 +82,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 28,
-          boxShadow: "0 24px 60px rgba(43, 33, 26, 0.08)",
+          boxShadow: "0 24px 60px rgba(31, 63, 61, 0.08)",
         },
       },
     },

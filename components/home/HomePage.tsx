@@ -33,54 +33,54 @@ import Link from "next/link";
 import { useState } from "react";
 
 const highlights = [
-  "Convent-led elder care rooted in dignity and peace",
-  "Real campus photography that builds trust from the first click",
-  "A warm story-led layout for families, visitors, and volunteers",
+  "Convent-led care rooted in dignity, prayer, and respect",
+  "Peaceful rooms, gardens, companionship, and daily support",
+  "A reassuring place for families seeking loving elder care",
 ];
 
 const pillars = [
   {
     icon: HomeRoundedIcon,
-    title: "A peaceful residential setting",
+    title: "A home with quiet dignity",
     description:
-      "Carmel Oasis feels grounded and restful, with landscaped pathways, open courtyards, and a calm rhythm of life.",
+      "Pushpasadan offers elders a calm residential setting where the day moves gently, the surroundings feel familiar, and every person is treated with respect.",
   },
   {
     icon: HealthAndSafetyRoundedIcon,
-    title: "Compassionate daily support",
+    title: "Care for everyday needs",
     description:
-      "The care story centers on safety, consistency, and the attentive presence of the sisters and the community around them.",
+      "From meals and personal assistance to attentive supervision, the sisters and care community help residents feel safe, noticed, and supported.",
   },
   {
     icon: VolunteerActivismRoundedIcon,
     title: "Faith, service, and belonging",
     description:
-      "This is more than a facility page. It communicates a sense of mission, prayerful care, and human connection.",
+      "Prayer, kindness, shared time, and service shape the atmosphere here, helping elders experience companionship instead of isolation.",
   },
 ];
 
 const experiencePoints = [
   {
-    eyebrow: "Campus",
-    title: "Space to breathe, pray, and feel at home",
-    text: "The grounds and gardens create an atmosphere that feels restorative, not institutional. Families can instantly understand the setting through the photo-led storytelling.",
+    eyebrow: "Daily care",
+    title: "Gentle support through ordinary routines",
+    text: "Residents are cared for through regular meals, rest, hygiene support, prayer, conversation, and a steady rhythm that brings comfort to each day.",
+  },
+  {
+    eyebrow: "Family trust",
+    title: "A setting families can understand and trust",
+    text: "Real people, open spaces, and visible community life help families feel confident that their loved ones are entering a caring and respectful home.",
   },
   {
     eyebrow: "Community",
-    title: "A place animated by people, not just buildings",
-    text: "The group photography highlights volunteers, sisters, guests, and moments of togetherness. That human presence strengthens trust far more than generic marketing language.",
-  },
-  {
-    eyebrow: "Design",
-    title: "Modern presentation with gentle emotion",
-    text: "The page uses cinematic imagery, layered cards, smooth motion, and clear headings so the site feels reverent, modern, and easy to explore on mobile.",
+    title: "A life enriched by visitors and fellowship",
+    text: "The home welcomes moments of connection with sisters, volunteers, guests, and well-wishers so residents remain part of a wider circle of love.",
   },
 ];
 
 const stats = [
-  { value: "5", label: "new campus photos added" },
-  { value: "FAQ", label: "structured content for SEO" },
-  { value: "Fast", label: "responsive visual storytelling" },
+  { value: "24/7", label: "caring presence and supervision" },
+  { value: "Peace", label: "prayerful convent atmosphere" },
+  { value: "Care", label: "meals, companionship, and daily support" },
 ];
 
 const gallery = [
@@ -90,7 +90,7 @@ const gallery = [
     kicker: "Arrival view",
     alt: "Front exterior view of the Carmel Oasis building with cross-topped domes and landscaped grounds.",
     description:
-      "The main building gives the homepage a strong sense of identity and place. It immediately signals permanence, serenity, and sacred purpose.",
+      "The entrance reflects a calm and welcoming home where elders can live with dignity, safety, and a sense of belonging.",
   },
   {
     src: "/photos/sisters-front.jpg",
@@ -98,7 +98,7 @@ const gallery = [
     kicker: "Leadership and care",
     alt: "Five sisters standing in front of the Carmel Oasis entrance garden.",
     description:
-      "This portrait grounds the site in real people. It gives visitors a reassuring first impression of the women who shape the home with care and prayer.",
+      "The sisters bring prayerful service, patience, and personal attention to the life of the home.",
   },
   {
     src: "/photos/community-team.jpg",
@@ -106,7 +106,7 @@ const gallery = [
     kicker: "Shared mission",
     alt: "A group of volunteers and community members gathered together on the Carmel Oasis campus.",
     description:
-      "Community involvement brings energy and warmth to the story. It shows that Carmel Oasis is connected to a wider circle of service and support.",
+      "Volunteers and friends add warmth to the home, reminding residents that they are remembered, valued, and loved.",
   },
   {
     src: "/photos/garden-view.jpg",
@@ -114,7 +114,7 @@ const gallery = [
     kicker: "Nature and nourishment",
     alt: "A cultivated garden plot at Carmel Oasis with greenery and hills in the background.",
     description:
-      "The surrounding land adds a sense of freshness and simplicity. It helps the site feel lived-in, grounded, and close to nature.",
+      "The garden and open surroundings create a restorative atmosphere where residents can enjoy fresh air, quiet walks, and simple beauty.",
   },
   {
     src: "/photos/visitors-community.jpg",
@@ -122,25 +122,25 @@ const gallery = [
     kicker: "Welcoming spirit",
     alt: "Visitors and sisters gathered together outside the Carmel Oasis building.",
     description:
-      "This image adds approachability to the page by showing conversation, welcome, and relationship rather than distance.",
+      "Visits, conversations, and shared moments help make the home feel alive with human connection.",
   },
 ];
 
 const faqs = [
   {
-    question: "Why does this homepage help SEO more than the previous version?",
+    question: "What kind of care does Pushpasadan Old Age Home provide?",
     answer:
-      "It now uses specific place-based headings, image alt text, richer metadata, structured FAQ content, and descriptive sections built around the real Carmel Oasis campus instead of generic placeholder copy.",
+      "Pushpasadan provides residential elder care in a convent-led setting, with daily support, meals, companionship, prayerful presence, and a peaceful environment for senior residents.",
   },
   {
-    question: "How do the new photos improve trust?",
+    question: "Is the home suitable for elders who need companionship?",
     answer:
-      "Real photography helps families, supporters, and search visitors connect the words on the page to an actual community, actual grounds, and actual people involved in the mission.",
+      "Yes. The home is shaped around belonging, shared routines, visits, prayer, and community life so elders are not left to feel alone.",
   },
   {
-    question: "What should be added next for even stronger rankings?",
+    question: "How can families or well-wishers get involved?",
     answer:
-      "Verified contact details, a map pin, local address information, testimonials, and dedicated pages for mission, facilities, activities, and enquiries will strengthen local and long-tail search visibility further.",
+      "Families can enquire about care and visits, while well-wishers can support the mission through volunteering, donations, and acts of service. Verified contact details can be added here for direct enquiries.",
   },
 ];
 
@@ -163,7 +163,7 @@ const HomePage = () => {
         sx={{
           overflow: "hidden",
           background:
-            "radial-gradient(circle at top left, rgba(132, 96, 60, 0.18), transparent 26%), radial-gradient(circle at right, rgba(108, 135, 97, 0.12), transparent 22%), linear-gradient(180deg, #F8F1E7 0%, #FFFDF9 44%, #F3EADF 100%)",
+            "radial-gradient(circle at top left, rgba(93, 150, 152, 0.20), transparent 26%), radial-gradient(circle at right, rgba(111, 160, 107, 0.14), transparent 22%), linear-gradient(180deg, #EEF8F5 0%, #FFFDF8 48%, #EAF4EE 100%)",
             width:"100%",
         }}
       >
@@ -183,14 +183,14 @@ const HomePage = () => {
               right: -120,
               width: 340,
               height: 340,
-              background: "rgba(122, 62, 43, 0.12)",
+              background: "rgba(47, 111, 115, 0.13)",
             },
             "&::after": {
               bottom: 120,
               left: -120,
               width: 320,
               height: 320,
-              background: "rgba(79, 123, 98, 0.16)",
+              background: "rgba(111, 160, 107, 0.18)",
             },
           }}
         >
@@ -206,25 +206,25 @@ const HomePage = () => {
                 <m.div {...fadeUp(reducedMotion)}>
                   <Stack spacing={3}>
                     <Chip
-                      label="• Pushpasadan Old Age Home"
+                      label="Pushpasadan Old Age Home"
                       sx={{
                         alignSelf: "flex-start",
-                        bgcolor: "rgba(122, 62, 43, 0.1)",
+                        bgcolor: "rgba(47, 111, 115, 0.11)",
                         color: "primary.dark",
                       }}
                     />
                     <Typography variant="h1">
-                      A prayerful , welcoming home where care feels personal and
-                      the campus itself tells the story.
+                      A peaceful old age home where elders are cared for with
+                      dignity, prayer, and love.
                     </Typography>
                     <Typography
                       variant="body1"
                       sx={{ maxWidth: 640, color: "text.secondary" }}
                     >
-                      This redesigned homepage turns Carmel Oasis into a vivid
-                      digital experience with real photos, richer storytelling,
-                      better search structure, and a warmer first impression for
-                      families, visitors, and supporters.
+                      Carmel Oasis at Pushpasadan is a convent-led home for
+                      senior residents, offering a calm place to live, gentle
+                      daily support, companionship, and the reassurance of a
+                      caring community.
                     </Typography>
                     <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
                       <Button
@@ -233,7 +233,7 @@ const HomePage = () => {
                         variant="contained"
                         endIcon={<KeyboardArrowRightRoundedIcon />}
                       >
-                        Explore the Campus
+                        Explore the Home
                       </Button>
                       <Button
                         component={Link}
@@ -241,7 +241,7 @@ const HomePage = () => {
                         variant="outlined"
                         color="primary"
                       >
-                        View Launch Checklist
+                        Make an Enquiry
                       </Button>
                     </Stack>
                     <Stack spacing={1.5}>
@@ -270,7 +270,7 @@ const HomePage = () => {
                         overflow: "hidden",
                         minHeight: { xs: 420, md: 560 },
                         borderRadius: 2,
-                        boxShadow: "0 30px 80px rgba(43, 33, 26, 0.18)",
+                        boxShadow: "0 30px 80px rgba(31, 63, 61, 0.18)",
                       }}
                     >
                       <Box sx={{ position: "absolute", inset: 0 }}>
@@ -304,7 +304,7 @@ const HomePage = () => {
                       >
                         <Stack direction="row" sx={{ justifyContent: "space-between" }}>
                           <Chip
-                            label="Real campus photography"
+                            label="Peaceful convent campus"
                             sx={{
                               bgcolor: "rgba(255,255,255,0.14)",
                               color: "common.white",
@@ -316,15 +316,15 @@ const HomePage = () => {
                         </Stack>
                         <Stack spacing={2}>
                           <Typography variant="h3" sx={{ color: "inherit" }}>
-                            A homepage with a sense of place.
+                            A quiet place to feel safe, seen, and at home.
                           </Typography>
                           <Typography
                             variant="body2"
                             sx={{ color: "rgba(255,255,255,0.82)", maxWidth: 420 }}
                           >
                             The building, the sisters, the garden, and the
-                            community now work together to create an immediate
-                            emotional connection.
+                            community together create a gentle atmosphere for
+                            elders who deserve care with patience and respect.
                           </Typography>
                         </Stack>
                       </Stack>
@@ -351,20 +351,6 @@ const HomePage = () => {
                           style={{ objectFit: "cover" }}
                         />
                       </Box>
-                      {/* <CardContent
-                        sx={{
-                          p: 2.25,
-                          background: "rgba(255,255,255,0.92)",
-                        }}
-                      > */}
-                        {/* <Typography variant="h4" sx={{ mb: 0.5 }}>
-                          Face of the mission
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Leadership, care, and welcome are visible the moment a
-                          visitor lands on the page.
-                        </Typography> */}
-                      {/* </CardContent> */}
                     </Card>
                   </Box>
                 </m.div>
@@ -378,7 +364,7 @@ const HomePage = () => {
             <Card
               sx={{
                 bgcolor: "rgba(255,255,255,0.76)",
-                border: "1px solid rgba(122, 62, 43, 0.08)",
+                border: "1px solid rgba(47, 111, 115, 0.10)",
               }}
             >
               <CardContent sx={{ p: { xs: 2.5, md: 3.5 } }}>
@@ -390,7 +376,7 @@ const HomePage = () => {
                           borderRadius: 4,
                           px: 2,
                           py: 2.5,
-                          bgcolor: "rgba(215, 185, 142, 0.16)",
+                          bgcolor: "rgba(230, 177, 126, 0.16)",
                           textAlign: { xs: "left", sm: "center" },
                         }}
                       >
@@ -419,13 +405,14 @@ const HomePage = () => {
                 About Carmel Oasis
               </Typography>
               <Typography variant="h2">
-                Built to feel reverent, modern, and unmistakably real.
+                A convent-led home shaped by compassion and service.
               </Typography>
               <Typography variant="body1" color="text.secondary">
-                Instead of sounding like a template, the homepage now reflects a
-                genuine convent-run setting. It uses real imagery, specific
-                headings, and clear sections to help both search engines and
-                people understand what makes this place distinctive.
+                Carmel Oasis at Pushpasadan Old Age Home is a place where
+                senior residents can live with peace, routine, prayer, and
+                personal attention. The home is guided by the sisters and
+                supported by a community that believes every elder deserves
+                dignity, companionship, and tenderness.
               </Typography>
             </Stack>
           </m.div>
@@ -441,7 +428,7 @@ const HomePage = () => {
                           sx={{
                             width: 56,
                             height: 56,
-                            bgcolor: "rgba(122, 62, 43, 0.12)",
+                            bgcolor: "rgba(47, 111, 115, 0.12)",
                             color: "primary.main",
                           }}
                         >
@@ -470,17 +457,17 @@ const HomePage = () => {
                       variant="overline"
                       sx={{ color: "primary.main", letterSpacing: "0.12em" }}
                     >
-                      Experience design
+                      Care and daily life
                     </Typography>
                     <Typography variant="h2">
-                      Every section now has a job: trust, clarity, emotion, or
-                      discovery.
+                      Meaningful care is found in the small things repeated
+                      every day.
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                      Families often decide within seconds whether a care website
-                      feels sincere. That is why the redesign leans into visual
-                      warmth, softer typography, and a clear path from first
-                      impression to deeper exploration.
+                      A good old age home is not only about buildings. It is
+                      about meals served with care, someone present when help is
+                      needed, peaceful surroundings, prayer, conversation, and
+                      the comfort of being remembered.
                     </Typography>
                   </Stack>
                 </m.div>
@@ -523,15 +510,16 @@ const HomePage = () => {
                     variant="overline"
                     sx={{ color: "primary.main", letterSpacing: "0.12em" }}
                   >
-                    Interactive gallery
+                    Life at the home
                   </Typography>
                   <Typography variant="h2">
-                    Click through the moments that shape the Carmel Oasis story.
+                    Glimpses of the people and places that make Carmel Oasis
+                    feel personal.
                   </Typography>
                   <Typography variant="body1" color="text.secondary">
-                    This interactive section gives the homepage more life while
-                    staying simple and accessible. Each selection updates the
-                    featured image and its context without leaving the page.
+                    Explore the campus, gardens, sisters, visitors, and
+                    community moments that show the gentle spirit of Pushpasadan
+                    Old Age Home.
                   </Typography>
                 </Stack>
               </m.div>
@@ -552,7 +540,7 @@ const HomePage = () => {
                         border:
                           activePhoto === index
                             ? "1px solid transparent"
-                            : "1px solid rgba(122, 62, 43, 0.12)",
+                            : "1px solid rgba(47, 111, 115, 0.14)",
                         bgcolor:
                           activePhoto === index
                             ? "primary.main"
@@ -614,7 +602,7 @@ const HomePage = () => {
                         />
                         <Stack direction="row" spacing={1}>
                           <Chip icon={<PlaceRoundedIcon />} label="Carmel Oasis" />
-                          <Chip icon={<LandscapeRoundedIcon />} label="Photo-led" />
+                          <Chip icon={<LandscapeRoundedIcon />} label="Peaceful campus" />
                         </Stack>
                       </Stack>
                       <Typography variant="h3">{featuredPhoto.title}</Typography>
@@ -679,15 +667,15 @@ const HomePage = () => {
                   variant="overline"
                   sx={{ color: "primary.main", letterSpacing: "0.12em" }}
                 >
-                  Search-friendly FAQ
+                  Questions families ask
                 </Typography>
                 <Typography variant="h2">
-                  Helpful content for visitors and for search engines.
+                  Clear answers for families, visitors, and well-wishers.
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
-                  FAQ sections create stronger semantic structure and answer the
-                  kinds of questions people often have before contacting a home
-                  like this.
+                  Choosing an old age home is an emotional decision. These
+                  answers help families understand the care, atmosphere, and
+                  ways to connect with the mission.
                 </Typography>
               </Stack>
             </m.div>
@@ -725,7 +713,7 @@ const HomePage = () => {
               sx={{
                 overflow: "hidden",
                 background:
-                  "linear-gradient(135deg, rgba(88,45,31,1) 0%, rgba(79,123,98,0.96) 100%)",
+                  "linear-gradient(135deg, rgba(23,72,76,1) 0%, rgba(111,160,107,0.96) 100%)",
               }}
             >
               <CardContent sx={{ p: { xs: 3, md: 5 } }}>
@@ -733,16 +721,15 @@ const HomePage = () => {
                   <Grid size={{ xs: 12, md: 8 }}>
                     <Stack spacing={2}>
                       <Typography variant="h2" sx={{ color: "common.white" }}>
-                        Strong launch foundation, with one more step for local SEO.
+                        Looking for a caring old age home for someone you love?
                       </Typography>
                       <Typography
                         variant="body1"
                         sx={{ color: "rgba(255,255,255,0.84)", maxWidth: 720 }}
                       >
-                        The site now looks more alive and much more credible. To
-                        push ranking potential even further, add the verified phone
-                        number, email address, map location, and a short
-                        facilities page next.
+                        Reach out to learn more about life at Pushpasadan,
+                        visiting possibilities, resident care, and ways to
+                        support the sisters in their service to elders.
                       </Typography>
                     </Stack>
                   </Grid>
@@ -750,7 +737,7 @@ const HomePage = () => {
                     <Stack spacing={1.5}>
                       <Chip
                         icon={<AccessTimeRoundedIcon />}
-                        label="Add verified contact details"
+                        label="Resident care enquiries"
                         sx={{
                           bgcolor: "rgba(255,255,255,0.14)",
                           color: "common.white",
@@ -759,7 +746,7 @@ const HomePage = () => {
                       />
                       <Chip
                         icon={<PhotoLibraryRoundedIcon />}
-                        label="Keep expanding the real gallery"
+                        label="Family visits and fellowship"
                         sx={{
                           bgcolor: "rgba(255,255,255,0.14)",
                           color: "common.white",
@@ -768,7 +755,7 @@ const HomePage = () => {
                       />
                       <Chip
                         icon={<PlaceRoundedIcon />}
-                        label="Publish address and map embed"
+                        label="Volunteering and support"
                         sx={{
                           bgcolor: "rgba(255,255,255,0.14)",
                           color: "common.white",
@@ -789,7 +776,7 @@ const HomePage = () => {
                     color="secondary"
                     sx={{ color: "primary.dark" }}
                   >
-                    Review the Gallery
+                    View the Gallery
                   </Button>
                   <Button
                     component={Link}
@@ -800,7 +787,7 @@ const HomePage = () => {
                       borderColor: "rgba(255,255,255,0.34)",
                     }}
                   >
-                    Revisit the Story
+                    Learn About the Home
                   </Button>
                 </Stack>
               </CardContent>

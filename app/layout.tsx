@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Carmel Oasis",
   },
   description:
-    "Carmel Oasis at Pushpasadan Old Age Home is a convent-run elder care home presented with real campus photography, compassionate storytelling, and a peaceful visual identity.",
+    "Carmel Oasis at Pushpasadan Old Age Home is a convent-led elder care home offering peaceful residential support, companionship, prayer, and dignified care for seniors.",
   keywords: [
     "Carmel Oasis",
     "Pushpasadan",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FCF8F3",
+  themeColor: "#F6FBF8",
 };
 
 export default function RootLayout({

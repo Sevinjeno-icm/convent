@@ -25,8 +25,8 @@ const Navbar = () => {
       elevation={0}
       sx={{
         backdropFilter: "blur(18px)",
-        backgroundColor: "rgba(252, 248, 243, 0.78)",
-        borderBottom: "1px solid rgba(122, 62, 43, 0.08)",
+        backgroundColor: "rgba(246, 251, 248, 0.82)",
+        borderBottom: "1px solid rgba(47, 111, 115, 0.12)",
       }}
     >
       <Container>
@@ -76,8 +76,8 @@ const Navbar = () => {
         <Box
           sx={{
             display: { xs: "block", md: "none" },
-            borderTop: "1px solid rgba(122, 62, 43, 0.08)",
-            bgcolor: "rgba(252, 248, 243, 0.96)",
+            borderTop: "1px solid rgba(47, 111, 115, 0.12)",
+            bgcolor: "rgba(246, 251, 248, 0.96)",
           }}
         >
           <Container sx={{ py: 2 }}>

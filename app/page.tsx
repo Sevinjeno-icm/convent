@@ -4,20 +4,20 @@ import HomePage from "@/components/home/HomePage";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Carmel Oasis Photo Gallery and Convent Care Story",
+  title: "Carmel Oasis | Convent-Led Old Age Home",
   description:
-    "Explore Carmel Oasis at Pushpasadan Old Age Home through real campus photography, convent-led care storytelling, community moments, and search-friendly content.",
+    "Explore Carmel Oasis at Pushpasadan Old Age Home, a peaceful convent-led elder care home shaped by dignity, companionship, prayer, and daily support.",
   openGraph: {
     title: "Carmel Oasis | Pushpasadan Old Age Home",
     description:
-      "A warmer, more interactive homepage for Carmel Oasis with real photos, stronger trust signals, and richer SEO content.",
+      "A peaceful old age home where senior residents are cared for with dignity, prayer, companionship, and love.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Carmel Oasis | Pushpasadan Old Age Home",
     description:
-      "Real photos, calmer storytelling, and a stronger homepage for Carmel Oasis.",
+      "Convent-led residential elder care with daily support, companionship, and a prayerful atmosphere.",
   },
 };
 
@@ -27,7 +27,7 @@ const elderlyCareStructuredData = {
   name: "Carmel Oasis at Pushpasadan Old Age Home",
   alternateName: "Pushpasadan Old Age Home",
   description:
-    "A convent-run elder care home presented through real campus photography, faith-rooted hospitality, and community-centered storytelling.",
+    "A convent-led elder care home offering peaceful residential support, daily care, companionship, prayer, and dignity for senior residents.",
   serviceType: "Residential elder care",
   areaServed: "India",
   image: [
@@ -43,26 +43,26 @@ const faqStructuredData = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Why does this homepage help SEO more than the previous version?",
+      name: "What kind of care does Pushpasadan Old Age Home provide?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It now includes real campus imagery, richer headings, image alt text, structured FAQ content, and place-based copy that helps search engines understand the page more clearly.",
+        text: "Pushpasadan provides residential elder care in a convent-led setting, with daily support, meals, companionship, prayerful presence, and a peaceful environment for senior residents.",
       },
     },
     {
       "@type": "Question",
-      name: "How do the new photos improve trust?",
+      name: "Is the home suitable for elders who need companionship?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The photos connect the website to actual people, actual grounds, and the actual atmosphere of Carmel Oasis, which makes the page feel more credible and welcoming.",
+        text: "Yes. The home is shaped around belonging, shared routines, visits, prayer, and community life so elders are not left to feel alone.",
       },
     },
     {
       "@type": "Question",
-      name: "What should be added next for even stronger rankings?",
+      name: "How can families or well-wishers get involved?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Verified contact details, a map location, local address information, and dedicated supporting pages for facilities, mission, and enquiries would strengthen local search visibility further.",
+        text: "Families can enquire about care and visits, while well-wishers can support the mission through volunteering, donations, and acts of service.",
       },
     },
   ],

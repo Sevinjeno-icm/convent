@@ -12,7 +12,7 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        borderTop: "1px solid rgba(122, 62, 43, 0.08)",
+        borderTop: "1px solid rgba(47, 111, 115, 0.12)",
         bgcolor: "rgba(255,255,255,0.72)",
       }}
     >
@@ -28,8 +28,8 @@ const Footer = () => {
             Carmel Oasis
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 540 }}>
-            A convent-led elder care homepage shaped around real campus
-            photography, warmth, dignity, and a calmer sense of place.
+            A convent-led old age home shaped by prayer, companionship,
+            dignity, and compassionate daily care for senior residents.
           </Typography>
           <Stack
             direction="row"
