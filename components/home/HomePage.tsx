@@ -553,12 +553,12 @@ const HomePage = () => {
             sx={{ alignItems: "stretch" }}
           >
             {/* IMAGE FIRST ON MOBILE */}
-            <Grid
-              size={{ xs: 12, md: 7 }}
-              order={{ xs: 1, md: 2 }}
-              ref={imageSectionRef}
-            >
+          <Grid
+  size={{ xs: 12, md: 7 }}
+  sx={{ order: { xs: 1, md: 2 } }}
+>
               <m.div
+              ref={imageSectionRef}
                 key={activePhoto}
                 initial={{ opacity: 0, y: reducedMotion ? 0 : 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -624,7 +624,7 @@ const HomePage = () => {
             </Grid>
 
             {/* BUTTONS BELOW IMAGE ON MOBILE */}
-            <Grid size={{ xs: 12, md: 5 }} order={{ xs: 2, md: 1 }}>
+            <Grid size={{ xs: 12, md: 5 }} sx={{ order: { xs: 2, md: 1 } }}>
               <m.div {...fadeUp(reducedMotion)}>
                 <Stack spacing={2}>
                   <Typography
