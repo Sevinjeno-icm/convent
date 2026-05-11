@@ -10,11 +10,13 @@ export const metadata: Metadata = {
     template: "%s | Carmel Oasis",
   },
   description:
-    "Carmel Oasis at Pushpasadan Old Age Home is a convent-led elder care home offering peaceful residential support, companionship, prayer, and dignified care for seniors.",
+    "Carmel Oasis at Pushpasadan Old Age Home in Wanjale, Raigad is a convent-led elder care home offering peaceful residential support, companionship, prayer, and dignified care for seniors.",
   keywords: [
     "Carmel Oasis",
     "Pushpasadan",
     "Pushpasadan old age home",
+    "Carmel Oasis Wanjale",
+    "old age home in Raigad",
     "convent-run elder care",
     "elder care",
     "old age home",

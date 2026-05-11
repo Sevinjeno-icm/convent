@@ -7,6 +7,7 @@ import HealthAndSafetyRoundedIcon from "@mui/icons-material/HealthAndSafetyRound
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 import LandscapeRoundedIcon from "@mui/icons-material/LandscapeRounded";
+import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import PhotoLibraryRoundedIcon from "@mui/icons-material/PhotoLibraryRounded";
 import PlaceRoundedIcon from "@mui/icons-material/PlaceRounded";
 import VolunteerActivismRoundedIcon from "@mui/icons-material/VolunteerActivismRounded";
@@ -30,7 +31,7 @@ import {
 import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const highlights = [
   "Convent-led care rooted in dignity, prayer, and respect",
@@ -144,6 +145,17 @@ const faqs = [
   },
 ];
 
+const contact = {
+  address: "Carmel Oasis, Wanjale, Raigad dt.",
+  phoneLabel: "+91 8766480884",
+  phoneHref: "tel:+918766480884",
+  person: "Sr. Anishya",
+  mapsEmbed:
+    "https://www.google.com/maps?q=Carmel%20Oasis%2C%20Wanjale%2C%20Raigad&output=embed",
+  mapsLink:
+    "https://www.google.com/maps/search/?api=1&query=Carmel%20Oasis%2C%20Wanjale%2C%20Raigad",
+};
+
 const fadeUp = (reducedMotion: boolean) => ({
   initial: { opacity: 0, y: reducedMotion ? 0 : 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -152,9 +164,14 @@ const fadeUp = (reducedMotion: boolean) => ({
 });
 
 const HomePage = () => {
-  const reducedMotion = Boolean(useReducedMotion());
+  const prefersReducedMotion = useReducedMotion();
+  const [reducedMotion, setReducedMotion] = useState(false);
   const [activePhoto, setActivePhoto] = useState(0);
   const featuredPhoto = gallery[activePhoto];
+
+  useEffect(() => {
+    setReducedMotion(Boolean(prefersReducedMotion));
+  }, [prefersReducedMotion]);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -713,19 +730,29 @@ const HomePage = () => {
               sx={{
                 overflow: "hidden",
                 background:
-                  "linear-gradient(135deg, rgba(23,72,76,1) 0%, rgba(111,160,107,0.96) 100%)",
+                  "radial-gradient(circle at top left, rgba(93,150,152,0.18), transparent 34%), linear-gradient(135deg, #F9FEFB 0%, #EEF8F5 55%, #F7F2EA 100%)",
+                border: "1px solid rgba(47, 111, 115, 0.12)",
+                boxShadow: "0 30px 90px rgba(31, 63, 61, 0.12)",
               }}
             >
               <CardContent sx={{ p: { xs: 3, md: 5 } }}>
                 <Grid container spacing={4} sx={{ alignItems: "center" }}>
                   <Grid size={{ xs: 12, md: 8 }}>
                     <Stack spacing={2}>
-                      <Typography variant="h2" sx={{ color: "common.white" }}>
+                      <Chip
+                        label="Contact and directions"
+                        sx={{
+                          alignSelf: "flex-start",
+                          bgcolor: "rgba(47, 111, 115, 0.1)",
+                          color: "primary.dark",
+                        }}
+                      />
+                      <Typography variant="h2" sx={{ color: "primary.dark" }}>
                         Looking for a caring old age home for someone you love?
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ color: "rgba(255,255,255,0.84)", maxWidth: 720 }}
+                        sx={{ color: "text.secondary", maxWidth: 720 }}
                       >
                         Reach out to learn more about life at Pushpasadan,
                         visiting possibilities, resident care, and ways to
@@ -739,8 +766,8 @@ const HomePage = () => {
                         icon={<AccessTimeRoundedIcon />}
                         label="Resident care enquiries"
                         sx={{
-                          bgcolor: "rgba(255,255,255,0.14)",
-                          color: "common.white",
+                          bgcolor: "rgba(47, 111, 115, 0.1)",
+                          color: "primary.dark",
                           justifyContent: "flex-start",
                         }}
                       />
@@ -748,8 +775,8 @@ const HomePage = () => {
                         icon={<PhotoLibraryRoundedIcon />}
                         label="Family visits and fellowship"
                         sx={{
-                          bgcolor: "rgba(255,255,255,0.14)",
-                          color: "common.white",
+                          bgcolor: "rgba(111, 160, 107, 0.12)",
+                          color: "primary.dark",
                           justifyContent: "flex-start",
                         }}
                       />
@@ -757,8 +784,8 @@ const HomePage = () => {
                         icon={<PlaceRoundedIcon />}
                         label="Volunteering and support"
                         sx={{
-                          bgcolor: "rgba(255,255,255,0.14)",
-                          color: "common.white",
+                          bgcolor: "rgba(230, 177, 126, 0.18)",
+                          color: "primary.dark",
                           justifyContent: "flex-start",
                         }}
                       />
@@ -766,30 +793,135 @@ const HomePage = () => {
                   </Grid>
                 </Grid>
                 <Divider
-                  sx={{ my: 4, borderColor: "rgba(255,255,255,0.18)" }}
+                  sx={{ my: 4, borderColor: "rgba(47, 111, 115, 0.12)" }}
                 />
-                <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                  <Button
-                    component={Link}
-                    href="/#gallery"
-                    variant="contained"
-                    color="secondary"
-                    sx={{ color: "primary.dark" }}
-                  >
-                    View the Gallery
-                  </Button>
-                  <Button
-                    component={Link}
-                    href="/#about"
-                    variant="outlined"
-                    sx={{
-                      color: "common.white",
-                      borderColor: "rgba(255,255,255,0.34)",
-                    }}
-                  >
-                    Learn About the Home
-                  </Button>
-                </Stack>
+                <Grid container spacing={3}>
+                  <Grid size={{ xs: 12, md: 5 }}>
+                    <Stack spacing={2.5}>
+                      <Box
+                        sx={{
+                          borderRadius: 3,
+                          bgcolor: "rgba(255,255,255,0.82)",
+                          border: "1px solid rgba(47, 111, 115, 0.12)",
+                          boxShadow: "0 18px 50px rgba(31, 63, 61, 0.07)",
+                          p: 2.5,
+                        }}
+                      >
+                        <Stack spacing={1}>
+                          <Typography
+                            variant="overline"
+                            sx={{
+                              color: "primary.main",
+                              letterSpacing: "0.12em",
+                            }}
+                          >
+                            Address
+                          </Typography>
+                          <Stack direction="row" spacing={1.5}>
+                            <PlaceRoundedIcon sx={{ color: "primary.main", mt: 0.3 }} />
+                            <Typography variant="body1" sx={{ color: "text.primary" }}>
+                              {contact.address}
+                            </Typography>
+                          </Stack>
+                        </Stack>
+                      </Box>
+
+                      <Box
+                        sx={{
+                          borderRadius: 3,
+                          bgcolor: "rgba(255,255,255,0.82)",
+                          border: "1px solid rgba(47, 111, 115, 0.12)",
+                          boxShadow: "0 18px 50px rgba(31, 63, 61, 0.07)",
+                          p: 2.5,
+                        }}
+                      >
+                        <Stack spacing={1}>
+                          <Typography
+                            variant="overline"
+                            sx={{
+                              color: "primary.main",
+                              letterSpacing: "0.12em",
+                            }}
+                          >
+                            Contact
+                          </Typography>
+                          <Stack direction="row" spacing={1.5}>
+                            <LocalPhoneRoundedIcon
+                              sx={{ color: "primary.main", mt: 0.3 }}
+                            />
+                            <Box>
+                              <Typography variant="body1" sx={{ color: "text.primary" }}>
+                                {contact.person}
+                              </Typography>
+                              <Typography
+                                component="a"
+                                href={contact.phoneHref}
+                                variant="h4"
+                                sx={{
+                                  color: "primary.dark",
+                                  textDecoration: "none",
+                                }}
+                              >
+                                {contact.phoneLabel}
+                              </Typography>
+                            </Box>
+                          </Stack>
+                        </Stack>
+                      </Box>
+
+                      <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                        <Button
+                          component="a"
+                          href={contact.phoneHref}
+                          variant="contained"
+                        >
+                          Call Sr. Anishya
+                        </Button>
+                        <Button
+                          component="a"
+                          href={contact.mapsLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="outlined"
+                          sx={{
+                            color: "primary.dark",
+                            borderColor: "rgba(47, 111, 115, 0.28)",
+                            bgcolor: "rgba(255,255,255,0.45)",
+                          }}
+                        >
+                          Open Google Maps
+                        </Button>
+                      </Stack>
+                    </Stack>
+                  </Grid>
+
+                  <Grid size={{ xs: 12, md: 7 }}>
+                    <Box
+                      sx={{
+                        overflow: "hidden",
+                        borderRadius: 3,
+                        border: "1px solid rgba(47, 111, 115, 0.14)",
+                        bgcolor: "rgba(255,255,255,0.86)",
+                        boxShadow: "0 18px 50px rgba(31, 63, 61, 0.09)",
+                        minHeight: { xs: 320, md: 380 },
+                      }}
+                    >
+                      <Box
+                        component="iframe"
+                        title="Google map showing Carmel Oasis, Wanjale, Raigad"
+                        src={contact.mapsEmbed}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        sx={{
+                          display: "block",
+                          width: "100%",
+                          height: { xs: 320, md: 380 },
+                          border: 0,
+                        }}
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
               </CardContent>
             </Card>
           </m.div>

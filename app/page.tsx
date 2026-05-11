@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Carmel Oasis | Convent-Led Old Age Home",
   description:
-    "Explore Carmel Oasis at Pushpasadan Old Age Home, a peaceful convent-led elder care home shaped by dignity, companionship, prayer, and daily support.",
+    "Explore Carmel Oasis at Pushpasadan Old Age Home in Wanjale, Raigad, a peaceful convent-led elder care home shaped by dignity, companionship, prayer, and daily support.",
   openGraph: {
     title: "Carmel Oasis | Pushpasadan Old Age Home",
     description:
@@ -26,10 +26,23 @@ const elderlyCareStructuredData = {
   "@type": "ElderlyCare",
   name: "Carmel Oasis at Pushpasadan Old Age Home",
   alternateName: "Pushpasadan Old Age Home",
+  telephone: "+91 8766480884",
   description:
     "A convent-led elder care home offering peaceful residential support, daily care, companionship, prayer, and dignity for senior residents.",
   serviceType: "Residential elder care",
   areaServed: "India",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Carmel Oasis, Wanjale",
+    addressRegion: "Raigad",
+    addressCountry: "IN",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+91 8766480884",
+    contactType: "resident care enquiries",
+    name: "Sr. Anishya",
+  },
   image: [
     "/photos/carmel-oasis-exterior.jpg",
     "/photos/sisters-front.jpg",
