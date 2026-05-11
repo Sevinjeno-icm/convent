@@ -4,7 +4,7 @@ import HomePage from "@/components/home/HomePage";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Carmel Oasis | Convent-Led Old Age Home",
+  title: "Pushpasadan",
   description:
     "Explore Carmel Oasis at Pushpasadan Old Age Home in Wanjale, Raigad, a peaceful convent-led elder care home shaped by dignity, companionship, prayer, and daily support.",
   openGraph: {

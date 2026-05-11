@@ -31,7 +31,7 @@ import {
 import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const highlights = [
   "Convent-led care rooted in dignity, prayer, and respect",
@@ -167,6 +167,8 @@ const HomePage = () => {
   const prefersReducedMotion = useReducedMotion();
   const [reducedMotion, setReducedMotion] = useState(false);
   const [activePhoto, setActivePhoto] = useState(0);
+  const imageSectionRef = useRef<HTMLDivElement | null>(null);
+
   const featuredPhoto = gallery[activePhoto];
 
   useEffect(() => {
@@ -181,7 +183,7 @@ const HomePage = () => {
           overflow: "hidden",
           background:
             "radial-gradient(circle at top left, rgba(93, 150, 152, 0.20), transparent 26%), radial-gradient(circle at right, rgba(111, 160, 107, 0.14), transparent 22%), linear-gradient(180deg, #EEF8F5 0%, #FFFDF8 48%, #EAF4EE 100%)",
-            width:"100%",
+          width: "100%",
         }}
       >
         <Box
@@ -211,9 +213,10 @@ const HomePage = () => {
             },
           }}
         >
-          {/* <Container sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 } }}> */}
-            <Container maxWidth="xl" sx={{ pt: { xs: 6, md: 3 }, pb: { xs: 8, md: 12 } }}>
-
+          <Container
+            maxWidth="xl"
+            sx={{ pt: { xs: 6, md: 3 }, pb: { xs: 8, md: 12 } }}
+          >
             <Grid
               container
               spacing={{ xs: 5, md: 2 }}
@@ -269,7 +272,10 @@ const HomePage = () => {
                           spacing={1.5}
                           sx={{ alignItems: "center" }}
                         >
-                          <FavoriteRoundedIcon color="primary" fontSize="small" />
+                          <FavoriteRoundedIcon
+                            color="primary"
+                            fontSize="small"
+                          />
                           <Typography variant="body2">{item}</Typography>
                         </Stack>
                       ))}
@@ -280,7 +286,13 @@ const HomePage = () => {
 
               <Grid size={{ xs: 12, md: 6 }}>
                 <m.div {...fadeUp(reducedMotion)}>
-                  <Box sx={{ position: "relative", minHeight: { xs: 460, md: 620 }, width:"100%" } }>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      minHeight: { xs: 460, md: 620 },
+                      width: "100%",
+                    }}
+                  >
                     <Card
                       sx={{
                         position: "relative",
@@ -319,7 +331,10 @@ const HomePage = () => {
                           color: "common.white",
                         }}
                       >
-                        <Stack direction="row" sx={{ justifyContent: "space-between" }}>
+                        <Stack
+                          direction="row"
+                          sx={{ justifyContent: "space-between" }}
+                        >
                           <Chip
                             label="Peaceful convent campus"
                             sx={{
@@ -337,7 +352,10 @@ const HomePage = () => {
                           </Typography>
                           <Typography
                             variant="body2"
-                            sx={{ color: "rgba(255,255,255,0.82)", maxWidth: 420 }}
+                            sx={{
+                              color: "rgba(255,255,255,0.82)",
+                              maxWidth: 420,
+                            }}
                           >
                             The building, the sisters, the garden, and the
                             community together create a gentle atmosphere for
@@ -359,7 +377,12 @@ const HomePage = () => {
                         backdropFilter: "blur(16px)",
                       }}
                     >
-                      <Box sx={{ position: "relative", height: { xs: 180, md: 220 } }}>
+                      <Box
+                        sx={{
+                          position: "relative",
+                          height: { xs: 180, md: 220 },
+                        }}
+                      >
                         <Image
                           src="/photos/sisters-front.jpg"
                           alt="The sisters standing together in front of the Carmel Oasis entrance."
@@ -425,11 +448,11 @@ const HomePage = () => {
                 A convent-led home shaped by compassion and service.
               </Typography>
               <Typography variant="body1" color="text.secondary">
-                Carmel Oasis at Pushpasadan Old Age Home is a place where
-                senior residents can live with peace, routine, prayer, and
-                personal attention. The home is guided by the sisters and
-                supported by a community that believes every elder deserves
-                dignity, companionship, and tenderness.
+                Carmel Oasis at Pushpasadan Old Age Home is a place where senior
+                residents can live with peace, routine, prayer, and personal
+                attention. The home is guided by the sisters and supported by a
+                community that believes every elder deserves dignity,
+                companionship, and tenderness.
               </Typography>
             </Stack>
           </m.div>
@@ -438,7 +461,9 @@ const HomePage = () => {
             {pillars.map(({ icon: Icon, title, description }) => (
               <Grid key={title} size={{ xs: 12, md: 4 }}>
                 <m.div {...fadeUp(reducedMotion)}>
-                  <Card sx={{ height: "100%", bgcolor: "rgba(255,255,255,0.84)" }}>
+                  <Card
+                    sx={{ height: "100%", bgcolor: "rgba(255,255,255,0.84)" }}
+                  >
                     <CardContent sx={{ p: 3.5 }}>
                       <Stack spacing={2}>
                         <Avatar
@@ -499,7 +524,10 @@ const HomePage = () => {
                           <Stack spacing={1.2}>
                             <Typography
                               variant="overline"
-                              sx={{ color: "primary.main", letterSpacing: "0.12em" }}
+                              sx={{
+                                color: "primary.main",
+                                letterSpacing: "0.12em",
+                              }}
                             >
                               {item.eyebrow}
                             </Typography>
@@ -519,20 +547,101 @@ const HomePage = () => {
         </Box>
 
         <Container sx={{ py: { xs: 7, md: 10 } }} id="gallery">
-          <Grid container spacing={{ xs: 4, md: 5 }} sx={{ alignItems: "stretch" }}>
-            <Grid size={{ xs: 12, md: 5 }}>
+          <Grid
+            container
+            spacing={{ xs: 4, md: 5 }}
+            sx={{ alignItems: "stretch" }}
+          >
+            {/* IMAGE FIRST ON MOBILE */}
+            <Grid
+              size={{ xs: 12, md: 7 }}
+              order={{ xs: 1, md: 2 }}
+              ref={imageSectionRef}
+            >
+              <m.div
+                key={activePhoto}
+                initial={{ opacity: 0, y: reducedMotion ? 0 : 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: reducedMotion ? 0 : 0.4,
+                  ease: "easeOut",
+                }}
+              >
+                <Card
+                  sx={{
+                    overflow: "hidden",
+                    bgcolor: "rgba(255,255,255,0.9)",
+                  }}
+                >
+                  <Box
+                    sx={{ position: "relative", height: { xs: 320, md: 500 } }}
+                  >
+                    <Image
+                      src={featuredPhoto.src}
+                      alt={featuredPhoto.alt}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 58vw"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Box>
+
+                  <CardContent sx={{ p: { xs: 2, md: 3.5 } }}>
+                    <Stack spacing={1.5}>
+                      <Stack
+                        direction={{ xs: "column", sm: "row" }}
+                        spacing={1}
+                        sx={{ justifyContent: "space-between" }}
+                      >
+                        <Chip
+                          icon={<AutoAwesomeRoundedIcon />}
+                          label={featuredPhoto.kicker}
+                          sx={{ alignSelf: "flex-start" }}
+                        />
+
+                        <Stack direction="row" spacing={1}>
+                          <Chip
+                            icon={<PlaceRoundedIcon />}
+                            label="Carmel Oasis"
+                          />
+                          <Chip
+                            icon={<LandscapeRoundedIcon />}
+                            label="Peaceful campus"
+                          />
+                        </Stack>
+                      </Stack>
+
+                      <Typography variant="h3">
+                        {featuredPhoto.title}
+                      </Typography>
+
+                      <Typography variant="body1" color="text.secondary">
+                        {featuredPhoto.description}
+                      </Typography>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              </m.div>
+            </Grid>
+
+            {/* BUTTONS BELOW IMAGE ON MOBILE */}
+            <Grid size={{ xs: 12, md: 5 }} order={{ xs: 2, md: 1 }}>
               <m.div {...fadeUp(reducedMotion)}>
                 <Stack spacing={2}>
                   <Typography
                     variant="overline"
-                    sx={{ color: "primary.main", letterSpacing: "0.12em" }}
+                    sx={{
+                      color: "primary.main",
+                      letterSpacing: "0.12em",
+                    }}
                   >
                     Life at the home
                   </Typography>
+
                   <Typography variant="h2">
                     Glimpses of the people and places that make Carmel Oasis
                     feel personal.
                   </Typography>
+
                   <Typography variant="body1" color="text.secondary">
                     Explore the campus, gardens, sisters, visitors, and
                     community moments that show the gentle spirit of Pushpasadan
@@ -541,19 +650,29 @@ const HomePage = () => {
                 </Stack>
               </m.div>
 
-              <Stack spacing={1.5} sx={{ mt: 4 }}>
+              <Stack spacing={1.2} sx={{ mt: 4 }}>
                 {gallery.map((item, index) => (
                   <m.div key={item.title} {...fadeUp(reducedMotion)}>
                     <Button
                       fullWidth
-                      onClick={() => setActivePhoto(index)}
+                      onClick={() => {
+                        setActivePhoto(index);
+                        if (window.innerWidth < 900) {
+                          setTimeout(() => {
+                            imageSectionRef.current?.scrollIntoView({
+                              behavior: "smooth",
+                              block: "nearest",
+                            });
+                          }, 100);
+                        }
+                      }}
                       variant={activePhoto === index ? "contained" : "text"}
                       color={activePhoto === index ? "primary" : "inherit"}
                       sx={{
                         justifyContent: "space-between",
-                        px: 2.25,
-                        py: 1.75,
-                        borderRadius: 4,
+                        px: 2,
+                        py: 1.5,
+                        borderRadius: 3,
                         border:
                           activePhoto === index
                             ? "1px solid transparent"
@@ -562,10 +681,18 @@ const HomePage = () => {
                           activePhoto === index
                             ? "primary.main"
                             : "rgba(255,255,255,0.68)",
-                        color: activePhoto === index ? "common.white" : "text.primary",
+                        color:
+                          activePhoto === index
+                            ? "common.white"
+                            : "text.primary",
+                        boxShadow:
+                          activePhoto === index
+                            ? "0 10px 24px rgba(47,111,115,0.22)"
+                            : "none",
+                        transition: "all 0.25s ease",
                       }}
                     >
-                      <Stack spacing={0.3} sx={{ textAlign: "left" }}>
+                      <Stack spacing={0.2} sx={{ textAlign: "left" }}>
                         <Typography variant="body2" sx={{ fontWeight: 800 }}>
                           {item.kicker}
                         </Typography>
@@ -586,50 +713,6 @@ const HomePage = () => {
                   </m.div>
                 ))}
               </Stack>
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 7 }}>
-              <m.div {...fadeUp(reducedMotion)}>
-                <Card
-                  sx={{
-                    overflow: "hidden",
-                    bgcolor: "rgba(255,255,255,0.9)",
-                  }}
-                >
-                  <Box sx={{ position: "relative", height: { xs: 320, md: 500 } }}>
-                    <Image
-                      src={featuredPhoto.src}
-                      alt={featuredPhoto.alt}
-                      fill
-                      sizes="(max-width: 900px) 100vw, 58vw"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </Box>
-                  <CardContent sx={{ p: { xs: 2.5, md: 3.5 } }}>
-                    <Stack spacing={2}>
-                      <Stack
-                        direction={{ xs: "column", sm: "row" }}
-                        spacing={1.5}
-                        sx={{ justifyContent: "space-between" }}
-                      >
-                        <Chip
-                          icon={<AutoAwesomeRoundedIcon />}
-                          label={featuredPhoto.kicker}
-                          sx={{ alignSelf: "flex-start" }}
-                        />
-                        <Stack direction="row" spacing={1}>
-                          <Chip icon={<PlaceRoundedIcon />} label="Carmel Oasis" />
-                          <Chip icon={<LandscapeRoundedIcon />} label="Peaceful campus" />
-                        </Stack>
-                      </Stack>
-                      <Typography variant="h3">{featuredPhoto.title}</Typography>
-                      <Typography variant="body1" color="text.secondary">
-                        {featuredPhoto.description}
-                      </Typography>
-                    </Stack>
-                  </CardContent>
-                </Card>
-              </m.div>
             </Grid>
           </Grid>
         </Container>
@@ -659,7 +742,10 @@ const HomePage = () => {
                       <Stack spacing={1}>
                         <Typography
                           variant="overline"
-                          sx={{ color: "primary.main", letterSpacing: "0.12em" }}
+                          sx={{
+                            color: "primary.main",
+                            letterSpacing: "0.12em",
+                          }}
                         >
                           {item.kicker}
                         </Typography>
@@ -677,19 +763,39 @@ const HomePage = () => {
         </Container>
 
         <Box sx={{ bgcolor: "rgba(255,255,255,0.56)" }}>
-          <Container sx={{ py: { xs: 7, md: 10 } }}>
+          <Container sx={{ py: { xs: 5, md: 9 } }}>
             <m.div {...fadeUp(reducedMotion)}>
-              <Stack spacing={2} sx={{ mb: 4, maxWidth: 760 }}>
+              <Stack
+                spacing={{ xs: 1.25, md: 2 }}
+                sx={{ mb: { xs: 2.5, md: 4 }, maxWidth: 760 }}
+              >
                 <Typography
                   variant="overline"
-                  sx={{ color: "primary.main", letterSpacing: "0.12em" }}
+                  sx={{
+                    color: "primary.main",
+                    fontSize: { xs: "0.72rem", md: "0.78rem" },
+                    letterSpacing: "0.08em",
+                  }}
                 >
                   Questions families ask
                 </Typography>
-                <Typography variant="h2">
+                <Typography
+                  variant="h2"
+                  sx={{
+                    fontSize: { xs: "1.8rem", md: "3.2rem" },
+                    lineHeight: 1.08,
+                  }}
+                >
                   Clear answers for families, visitors, and well-wishers.
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{
+                    fontSize: { xs: "0.95rem", md: "1.05rem" },
+                    lineHeight: 1.65,
+                  }}
+                >
                   Choosing an old age home is an emotional decision. These
                   answers help families understand the care, atmosphere, and
                   ways to connect with the mission.
@@ -697,23 +803,63 @@ const HomePage = () => {
               </Stack>
             </m.div>
 
-            <Stack spacing={2}>
+            <Stack spacing={{ xs: 1.2, md: 1.6 }}>
               {faqs.map((item) => (
                 <m.div key={item.question} {...fadeUp(reducedMotion)}>
                   <Accordion
                     disableGutters
                     sx={{
                       bgcolor: "rgba(255,255,255,0.88)",
-                      borderRadius: "24px !important",
-                      px: 1,
+                      border: "1px solid rgba(47, 111, 115, 0.1)",
+                      borderRadius: {
+                        xs: "14px !important",
+                        md: "18px !important",
+                      },
+                      boxShadow: "0 12px 32px rgba(31, 63, 61, 0.06)",
                       "&::before": { display: "none" },
                     }}
                   >
-                    <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}>
-                      <Typography variant="h4">{item.question}</Typography>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreRoundedIcon />}
+                      sx={{
+                        minHeight: { xs: 52, md: 60 },
+                        px: { xs: 1.75, md: 2.25 },
+                        py: { xs: 0.5, md: 0.75 },
+                        "&.Mui-expanded": { minHeight: { xs: 52, md: 60 } },
+                        "& .MuiAccordionSummary-content": {
+                          my: { xs: 0.75, md: 1 },
+                          pr: 1,
+                        },
+                        "& .MuiAccordionSummary-content.Mui-expanded": {
+                          my: { xs: 0.75, md: 1 },
+                        },
+                      }}
+                    >
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          fontSize: { xs: "0.98rem", md: "1.12rem" },
+                          lineHeight: 1.35,
+                        }}
+                      >
+                        {item.question}
+                      </Typography>
                     </AccordionSummary>
-                    <AccordionDetails sx={{ pt: 0 }}>
-                      <Typography variant="body2" color="text.secondary">
+                    <AccordionDetails
+                      sx={{
+                        px: { xs: 1.75, md: 2.25 },
+                        pt: 0,
+                        pb: { xs: 1.75, md: 2.25 },
+                      }}
+                    >
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{
+                          fontSize: { xs: "0.9rem", md: "0.96rem" },
+                          lineHeight: 1.65,
+                        }}
+                      >
                         {item.answer}
                       </Typography>
                     </AccordionDetails>
@@ -724,7 +870,7 @@ const HomePage = () => {
           </Container>
         </Box>
 
-        <Container sx={{ py: { xs: 8, md: 12 } }} id="contact">
+        <Container sx={{ py: { xs: 5.5, md: 10 } }} id="contact">
           <m.div {...fadeUp(reducedMotion)}>
             <Card
               sx={{
@@ -732,27 +878,53 @@ const HomePage = () => {
                 background:
                   "radial-gradient(circle at top left, rgba(93,150,152,0.18), transparent 34%), linear-gradient(135deg, #F9FEFB 0%, #EEF8F5 55%, #F7F2EA 100%)",
                 border: "1px solid rgba(47, 111, 115, 0.12)",
-                boxShadow: "0 30px 90px rgba(31, 63, 61, 0.12)",
+                borderRadius: { xs: 3, md: 4 },
+                boxShadow: {
+                  xs: "0 18px 48px rgba(31, 63, 61, 0.09)",
+                  md: "0 30px 90px rgba(31, 63, 61, 0.12)",
+                },
               }}
             >
-              <CardContent sx={{ p: { xs: 3, md: 5 } }}>
-                <Grid container spacing={4} sx={{ alignItems: "center" }}>
+              <CardContent sx={{ p: { xs: 2, sm: 2.5, md: 4 } }}>
+                <Grid
+                  container
+                  spacing={{ xs: 2.5, md: 4 }}
+                  sx={{ alignItems: "center" }}
+                >
                   <Grid size={{ xs: 12, md: 8 }}>
-                    <Stack spacing={2}>
+                    <Stack spacing={{ xs: 1.35, md: 2 }}>
                       <Chip
                         label="Contact and directions"
                         sx={{
                           alignSelf: "flex-start",
                           bgcolor: "rgba(47, 111, 115, 0.1)",
                           color: "primary.dark",
+                          height: { xs: 28, md: 32 },
+                          fontSize: { xs: "0.76rem", md: "0.82rem" },
                         }}
                       />
-                      <Typography variant="h2" sx={{ color: "primary.dark" }}>
+                      <Typography
+                        variant="h2"
+                        sx={{
+                          color: "primary.dark",
+                          fontSize: {
+                            xs: "1.85rem",
+                            sm: "2.2rem",
+                            md: "3.3rem",
+                          },
+                          lineHeight: { xs: 1.08, md: 1 },
+                        }}
+                      >
                         Looking for a caring old age home for someone you love?
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ color: "text.secondary", maxWidth: 720 }}
+                        sx={{
+                          color: "text.secondary",
+                          maxWidth: 720,
+                          fontSize: { xs: "0.95rem", md: "1.05rem" },
+                          lineHeight: { xs: 1.62, md: 1.75 },
+                        }}
                       >
                         Reach out to learn more about life at Pushpasadan,
                         visiting possibilities, resident care, and ways to
@@ -761,7 +933,7 @@ const HomePage = () => {
                     </Stack>
                   </Grid>
                   <Grid size={{ xs: 12, md: 4 }}>
-                    <Stack spacing={1.5}>
+                    <Stack spacing={1}>
                       <Chip
                         icon={<AccessTimeRoundedIcon />}
                         label="Resident care enquiries"
@@ -769,6 +941,8 @@ const HomePage = () => {
                           bgcolor: "rgba(47, 111, 115, 0.1)",
                           color: "primary.dark",
                           justifyContent: "flex-start",
+                          minHeight: { xs: 32, md: 36 },
+                          "& .MuiChip-label": { whiteSpace: "normal" },
                         }}
                       />
                       <Chip
@@ -778,6 +952,8 @@ const HomePage = () => {
                           bgcolor: "rgba(111, 160, 107, 0.12)",
                           color: "primary.dark",
                           justifyContent: "flex-start",
+                          minHeight: { xs: 32, md: 36 },
+                          "& .MuiChip-label": { whiteSpace: "normal" },
                         }}
                       />
                       <Chip
@@ -787,93 +963,98 @@ const HomePage = () => {
                           bgcolor: "rgba(230, 177, 126, 0.18)",
                           color: "primary.dark",
                           justifyContent: "flex-start",
+                          minHeight: { xs: 32, md: 36 },
+                          "& .MuiChip-label": { whiteSpace: "normal" },
                         }}
                       />
                     </Stack>
                   </Grid>
                 </Grid>
+
                 <Divider
-                  sx={{ my: 4, borderColor: "rgba(47, 111, 115, 0.12)" }}
+                  sx={{
+                    my: { xs: 2, md: 3 },
+                    borderColor: "rgba(47, 111, 115, 0.12)",
+                  }}
                 />
-                <Grid container spacing={3}>
+
+                <Grid container spacing={{ xs: 1.5, md: 3 }}>
                   <Grid size={{ xs: 12, md: 5 }}>
-                    <Stack spacing={2.5}>
-                      <Box
-                        sx={{
-                          borderRadius: 3,
-                          bgcolor: "rgba(255,255,255,0.82)",
-                          border: "1px solid rgba(47, 111, 115, 0.12)",
-                          boxShadow: "0 18px 50px rgba(31, 63, 61, 0.07)",
-                          p: 2.5,
-                        }}
+                    <Stack spacing={{ xs: 0.75, md: 1 }}>
+                      {/* Address */}
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        sx={{ alignItems: "center", px: 0.5 }}
                       >
-                        <Stack spacing={1}>
+                        <PlaceRoundedIcon
+                          sx={{
+                            color: "primary.main",
+                            fontSize: 17,
+                            flexShrink: 0,
+                          }}
+                        />
+                        <Typography
+                          variant="body2"
+                          sx={{ color: "text.primary", lineHeight: 1.4 }}
+                        >
+                          {contact.address}
+                        </Typography>
+                      </Stack>
+
+                      {/* Divider */}
+                      <Divider
+                        sx={{ borderColor: "rgba(47, 111, 115, 0.10)" }}
+                      />
+
+                      {/* Phone */}
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        sx={{ alignItems: "center", px: 0.5 }}
+                      >
+                        <LocalPhoneRoundedIcon
+                          sx={{
+                            color: "primary.main",
+                            fontSize: 17,
+                            flexShrink: 0,
+                          }}
+                        />
+                        <Box>
                           <Typography
-                            variant="overline"
+                            variant="caption"
                             sx={{
-                              color: "primary.main",
-                              letterSpacing: "0.12em",
+                              color: "text.secondary",
+                              display: "block",
+                              lineHeight: 1.2,
                             }}
                           >
-                            Address
+                            {contact.person}
                           </Typography>
-                          <Stack direction="row" spacing={1.5}>
-                            <PlaceRoundedIcon sx={{ color: "primary.main", mt: 0.3 }} />
-                            <Typography variant="body1" sx={{ color: "text.primary" }}>
-                              {contact.address}
-                            </Typography>
-                          </Stack>
-                        </Stack>
-                      </Box>
-
-                      <Box
-                        sx={{
-                          borderRadius: 3,
-                          bgcolor: "rgba(255,255,255,0.82)",
-                          border: "1px solid rgba(47, 111, 115, 0.12)",
-                          boxShadow: "0 18px 50px rgba(31, 63, 61, 0.07)",
-                          p: 2.5,
-                        }}
-                      >
-                        <Stack spacing={1}>
                           <Typography
-                            variant="overline"
+                            component="a"
+                            href={contact.phoneHref}
                             sx={{
-                              color: "primary.main",
-                              letterSpacing: "0.12em",
+                              color: "primary.dark",
+                              textDecoration: "none",
+                              fontSize: { xs: "0.95rem", md: "1.05rem" },
+                              fontWeight: 700,
+                              lineHeight: 1.2,
                             }}
                           >
-                            Contact
+                            {contact.phoneLabel}
                           </Typography>
-                          <Stack direction="row" spacing={1.5}>
-                            <LocalPhoneRoundedIcon
-                              sx={{ color: "primary.main", mt: 0.3 }}
-                            />
-                            <Box>
-                              <Typography variant="body1" sx={{ color: "text.primary" }}>
-                                {contact.person}
-                              </Typography>
-                              <Typography
-                                component="a"
-                                href={contact.phoneHref}
-                                variant="h4"
-                                sx={{
-                                  color: "primary.dark",
-                                  textDecoration: "none",
-                                }}
-                              >
-                                {contact.phoneLabel}
-                              </Typography>
-                            </Box>
-                          </Stack>
-                        </Stack>
-                      </Box>
+                        </Box>
+                      </Stack>
 
-                      <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                      {/* Buttons */}
+                      <Stack direction="row" spacing={1} sx={{ pt: 0.5 }}>
                         <Button
                           component="a"
                           href={contact.phoneHref}
                           variant="contained"
+                          size="small"
+                          sx={{ flex: 1, minHeight: 38 }}
                         >
                           Call Sr. Anishya
                         </Button>
@@ -883,13 +1064,16 @@ const HomePage = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           variant="outlined"
+                          size="small"
                           sx={{
+                            flex: 1,
+                            minHeight: 38,
                             color: "primary.dark",
                             borderColor: "rgba(47, 111, 115, 0.28)",
                             bgcolor: "rgba(255,255,255,0.45)",
                           }}
                         >
-                          Open Google Maps
+                          Open Maps
                         </Button>
                       </Stack>
                     </Stack>
@@ -899,11 +1083,11 @@ const HomePage = () => {
                     <Box
                       sx={{
                         overflow: "hidden",
-                        borderRadius: 3,
+                        borderRadius: { xs: 2, md: 3 },
                         border: "1px solid rgba(47, 111, 115, 0.14)",
                         bgcolor: "rgba(255,255,255,0.86)",
                         boxShadow: "0 18px 50px rgba(31, 63, 61, 0.09)",
-                        minHeight: { xs: 320, md: 380 },
+                        minHeight: { xs: 240, sm: 300, md: 360 },
                       }}
                     >
                       <Box
@@ -915,7 +1099,7 @@ const HomePage = () => {
                         sx={{
                           display: "block",
                           width: "100%",
-                          height: { xs: 320, md: 380 },
+                          height: { xs: 240, sm: 300, md: 360 },
                           border: 0,
                         }}
                       />

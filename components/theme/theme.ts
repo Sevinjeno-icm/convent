@@ -33,20 +33,20 @@ const theme = createTheme({
     h1: {
       fontFamily: '"Cormorant Garamond", serif',
       fontWeight: 700,
-      fontSize: "clamp(3rem, 6vw, 5.6rem)",
+      fontSize: "clamp(2.45rem, 6vw, 5.6rem)",
       lineHeight: 0.95,
       letterSpacing: "-0.04em",
     },
     h2: {
       fontFamily: '"Cormorant Garamond", serif',
       fontWeight: 700,
-      fontSize: "clamp(2.2rem, 4vw, 3.6rem)",
+      fontSize: "clamp(1.95rem, 4vw, 3.6rem)",
       lineHeight: 1,
       letterSpacing: "-0.03em",
     },
     h3: {
       fontWeight: 700,
-      fontSize: "clamp(1.35rem, 2vw, 1.75rem)",
+      fontSize: "clamp(1.18rem, 2vw, 1.75rem)",
       lineHeight: 1.2,
     },
     h4: {
@@ -54,11 +54,11 @@ const theme = createTheme({
       lineHeight: 1.2,
     },
     body1: {
-      fontSize: "1.05rem",
+      fontSize: "1rem",
       lineHeight: 1.75,
     },
     body2: {
-      fontSize: "0.98rem",
+      fontSize: "0.95rem",
       lineHeight: 1.7,
     },
     button: {
@@ -73,7 +73,7 @@ const theme = createTheme({
         root: {
           borderRadius: 999,
           paddingInline: 24,
-          minHeight: 48,
+          minHeight: 44,
           boxShadow: "none",
         },
       },
@@ -81,7 +81,7 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 28,
+          borderRadius: 22,
           boxShadow: "0 24px 60px rgba(31, 63, 61, 0.08)",
         },
       },
